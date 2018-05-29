@@ -79,9 +79,11 @@
 							Աղբյուրները
 						</h3>
 						<p>Կարդում եմ, ծխում ու մտածում</p>
-						<blockquote class="trello-card">
-							<a href="https://trello.com/c/Y7QkFQkU/37-%D5%A8%D5%B6%D5%A9%D5%A5%D6%80%D6%81%D5%A1%D6%81%D5%A1%D5%B6%D5%AF">Ընթերցացանկ</a>
-						</blockquote>
+						<h4>Իսկ ավելի կոնկրետ</h4><br><br>
+						<div id="tasklist"> 
+
+						</div>
+						
 						<script src="https://p.trellocdn.com/embed.min.js"></script>
 					</div>
 					<div class="col-md-4">
@@ -103,8 +105,26 @@
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/scripts.js"></script>
 	<script>
-		$.getJSON( "trello_tasklist.json", function(tasks) {
-  			console.log(tasks);
+		var tasklist = $("#tasklist");
+		$.getJSON( "https://hanumanum.github.io/tractatus/trello_tasklist.json", function(tasks) {
+  			
+			for(var tskl of tasks.checklists){
+				tasklist.append("<h5>"+tskl.name+"</h5>");
+				tasklist.append("<ul>");
+				for(var tsk of tskl.checkItems){
+					if(tsk.state==="complete"){
+						tasklist.append("<li><del>"+tsk.name+"</del></li>");
+					}
+					else{
+						tasklist.append("<li>"+tsk.name+"</li>");
+					}
+					
+				}
+				tasklist.append("</ul>");
+				tasklist.append("<br>");
+				console.log(tsk)
+			}
+			  
  		});
 		</script>
 </body>
