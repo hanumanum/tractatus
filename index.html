@@ -102,6 +102,11 @@
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/scripts.js"></script>
+	<script>
+		$.getJSON( "trello_tasklist.json", function( json ) {
+  			console.log(json.users);
+ 		});
+		</script>
 </body>
 
 </html>
