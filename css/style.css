@@ -93,3 +93,7 @@ h3{
 #toc, #blog{
 	padding:10px 5px 20px 25px;
 }
+
+#trello-list > li{
+	list-style: none;
+}

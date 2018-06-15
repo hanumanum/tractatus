@@ -1,22 +1,24 @@
 // Update task list
 var tasklist = $("#tasklist");
 $.getJSON("https://hanumanum.github.io/tractatus/trello_tasklist.json", function (tasks) {
-
+    var taskListHTML = "";
     for (var tskl of tasks.checklists) {
-        tasklist.append("<h5>" + tskl.name + "</h5>");
-        tasklist.append("<ul>");
+        
+        taskListHTML+="<h5>" + tskl.name + "</h5>";;
+        taskListHTML+="<ul id='trello-list'>";
         for (var tsk of tskl.checkItems) {
             if (tsk.state === "complete") {
-                tasklist.append("<li><del>" + tsk.name + "</del></li>");
+                taskListHTML+="<li><input type='checkbox' checked> " + tsk.name + "</li>";
             }
             else {
-                tasklist.append("<li>" + tsk.name + "</li>");
+                taskListHTML+="<li><input type='checkbox'> " + tsk.name + "</li>";
             }
 
         }
-        tasklist.append("</ul>");
-        tasklist.append("<br>");
+        taskListHTML+="</ul>";
+        taskListHTML+="<br>";
     }
+    tasklist.append(taskListHTML);
 });
 
 
