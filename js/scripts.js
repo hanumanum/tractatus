@@ -28,14 +28,3 @@ $(document).ready(function() {
         selector: "h2,h3,h4,h5,h6"
     });
 });
-
-/*
-// Update TOC
-$('#toc').initTOC({
-    selector: 'h2, h3, h4',
-    scope: 'body',
-    overwrite: false,
-    prefix: 'toc'
-});
-*/
-
