@@ -1,6 +1,6 @@
 // Update task list
 var tasklist = $("#tasklist");
-$.getJSON("https://hanumanum.github.io/tractatus/trello_tasklist.json", function (tasks) {
+$.getJSON("https://hanumanum.github.io/tractatus/trello_tasklist_.json", function (tasks) {
     var taskListHTML = "";
     for (var tskl of tasks.checklists) {
         
